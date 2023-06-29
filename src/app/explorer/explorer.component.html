@@ -1,7 +1,12 @@
 <div class="content" role="main">
+    <div *ngIf="currentDir !== undefined">
+      <button class="card card-small" (click)="back()"  tabindex="0">
+        <span>Retour</span>
+      </button>
+    </div>
 
     <div *ngIf="loading == true">
-      <h1>Loading ...</h1>
+      <h1>Chargement ...</h1>
       
     </div>
 
