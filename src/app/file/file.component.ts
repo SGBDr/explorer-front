@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { File } from '../models/File';
 
 @Component({
   selector: 'app-file',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./file.component.css']
 })
 export class FileComponent {
-
+  @Input() file!: File;
 }
