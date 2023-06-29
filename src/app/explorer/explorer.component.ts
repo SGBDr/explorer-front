@@ -13,6 +13,10 @@ export class ExplorerComponent implements OnInit {
   currentDir!: Directory;
   loading: Boolean = true;
 
+  open = (currentID: number) => {
+    this.fileService.enterDir(currentID, this.currentDir)
+  }
+
   constructor(private fileService: FileService){
   }
 
@@ -24,10 +28,6 @@ export class ExplorerComponent implements OnInit {
 
   back(): void{
     this.fileService.backToPrevious();
-  }
-
-  open(currentID: number): void{
-    this.fileService.enterDir(currentID, this.currentDir)
   }
 
 }
