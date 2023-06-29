@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Directory } from './../models/Directory';
 
 @Component({
   selector: 'app-directory',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent {
+  @Input() dir!: Directory;
+  @Input() open!: any;
 
+
+  openDir(id: number): void{
+    this.open(id);
+  }
+
+  constructor(){}
 }

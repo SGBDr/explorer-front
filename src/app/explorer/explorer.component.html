@@ -1,6 +1,6 @@
 <div class="content" role="main">
     <div *ngIf="currentDir !== undefined">
-      <button class="card card-small" (click)="back()"  tabindex="0">
+      <button class="card card-small" style="cursor: pointer;" (click)="back()"  tabindex="0">
         <span>Retour</span>
       </button>
     </div>
@@ -15,17 +15,9 @@
       <div style="text-align: left; width: 100%;">
         <h2>Dossier <span style="font-size: 30px; color: #1976d2;"> {{currentDir.name}}</span></h2>
       </div>
-      <p>Here are some links to help you get started:</p>
-    
-      <input type="hidden" #selection>
     
       <div *ngIf="currentDir.directoryList.length !== 0" class="card-container">
-        <small>list des dossiers</small>
-  
-        <button *ngFor="let dir of currentDir.directoryList" class="card card-small" (click)="open(dir.id)" tabindex="0">
-          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-          <span>{{dir.name}}</span>
-        </button>
+        <app-directory *ngFor="let dir of currentDir.directoryList" [dir]="dir" [open]="open"></app-directory>
       </div>
 
       <div *ngIf="currentDir.fileList.length !== 0" class="card-container">
