@@ -21,7 +21,7 @@
       </div>
 
       <div *ngIf="currentDir.fileList.length !== 0" class="card-container">
-          <app-file *ngFor="let file of currentDir.fileList"></app-file>
+          <app-file *ngFor="let file of currentDir.fileList" [file]="file"></app-file>
       </div>
 
     </div>

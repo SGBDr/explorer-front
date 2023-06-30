@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Directory } from './../models/Directory';
+import { File } from '../models/File';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,10 @@ export class FileService {
       if(dir.id === currentID)
         return true;
     return false;
+  }
+
+  getFile(file: File): Observable<any>{
+    return this.http.post<ArrayBuffer>("http://localhost:8080/file", file)
   }
 
 
