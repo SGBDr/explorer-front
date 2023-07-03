@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Directory } from './../models/Directory';
 import { File } from '../models/File';
@@ -63,7 +63,10 @@ export class FileService {
   }
 
   getFile(file: File): Observable<any>{
-    return this.http.post<ArrayBuffer>("http://localhost:8080/file", file)
+    return this.http.post("http://localhost:8080/file", file, {
+      responseType: 'arraybuffer',
+      headers: new HttpHeaders().append('Content-Type', 'application/pdf')
+    })
   }
 
 

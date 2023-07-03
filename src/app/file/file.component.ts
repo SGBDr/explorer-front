@@ -18,7 +18,7 @@ export class FileComponent implements OnInit {
     this.fileService.setLoading(true)
     this.fileService.getFile(this.file).subscribe(
       (rps) => {
-        this.fileAR = rps.pdf
+        this.fileAR = rps
         this.fileService.setLoading(false)
         var file = new Blob([this.fileAR], { type: 'application/pdf' });
         var fileURL = URL.createObjectURL(file);
