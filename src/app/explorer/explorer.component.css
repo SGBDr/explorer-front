@@ -23,9 +23,11 @@ svg#clouds {
 }
 
 .card-container {
-    display: flex;
+    /* display: flex;
+
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
+    column-count: 3;
     margin-top: 16px;
 }
 

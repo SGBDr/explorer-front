@@ -16,6 +16,7 @@
   }
 
 .card.card-small {
-    height: 16px;
-    width: 168px;
+    height: 60px;
+    width: 180px;
+    column-count: 2;
 }
