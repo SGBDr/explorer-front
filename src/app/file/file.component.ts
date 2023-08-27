@@ -14,7 +14,7 @@ export class FileComponent implements OnInit {
 
   constructor(private fileService: FileService, private router: Router){}
 
-  open(){
+  /*open(){
     this.fileService.setLoading(true)
     this.fileService.getFile(this.file).subscribe(
       (rps) => {
@@ -29,6 +29,28 @@ export class FileComponent implements OnInit {
         console.log(erro)
       }
     )
+  }*/
+
+  open(){
+    this.fileService.getPDF(this.file)
+      .subscribe(
+        (data: Blob) => {
+          var file = new Blob([data], { type: 'application/pdf' })
+          var fileURL = URL.createObjectURL(file);
+
+        // if you want to open PDF in new tab
+          window.open(fileURL); 
+          var a         = document.createElement('a');
+          a.href        = fileURL; 
+          a.target      = '_blank';
+          a.download    = 'bill.pdf';
+          document.body.appendChild(a);
+          a.click();
+        },
+        (error) => {
+          console.log('getPDF error: ',error);
+        }
+      );
   }
 
   ngOnInit(): void {

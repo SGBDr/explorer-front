@@ -69,6 +69,14 @@ export class FileService {
     })
   }
 
+  getPDF(file: File): Observable<Blob>{
+    var url = "http://localhost:8080/file";
+  
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', responseType : 'blob'});
+
+    return this.http.post<Blob>(url, file, { headers : headers,responseType : 'blob' as 'json'});
+  }
+
 
   initOrRefresh(){
     this.setLoading(true);
