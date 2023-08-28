@@ -79,7 +79,8 @@ export class FileService {
         this.emitAll(false);
       },
       (err) => {
-        this.treeDir =
+        console.log(err);
+        this.treeDir = {name: "Error while requesting the backend", url: "null", fileList: [], directoryList: [], id: 0};
         this.currentDir = {name: "Error while requesting the backend", url: "null", fileList: [], directoryList: [], id: 0};
         this.emitAll(false);
       }
